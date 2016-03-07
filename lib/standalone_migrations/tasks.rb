@@ -14,6 +14,7 @@ module StandaloneMigrations
         configure
         Configurator.environments_config do |proxy|
           ActiveRecord::Tasks::DatabaseTasks.database_configuration = proxy.configurations
+          ActiveRecord::Tasks::DatabaseTasks.env = Rails.env
         end
         MinimalRailtieConfig.load_tasks
         %w(
